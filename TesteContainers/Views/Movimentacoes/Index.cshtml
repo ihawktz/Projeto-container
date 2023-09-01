@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MovimentacoesModel> 
+
+@{
+    ViewData["Title"] = "Movimentações";
+}
+
+<div>
+
+    <div class="d-flex justify-content-center align-items-center mb-5">
+        <h1>Movimentações</h1>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="bg-info">
+                <th scope="col">Tipo de Movimentação</th>
+                <th scope="col">Inicio</th>
+                <th scope="col">Fim</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model != null)
+            {
+
+                @foreach (var movs in Model)
+                {
+                    <tr class="table-info">
+                        <th scope="row">@movs.TipoMovs</th>
+                        <td>@movs.dtInicio</td>
+                        <td>@movs.dtFim</td>
+                        <td>
+                            <a class="btn btn-warning mx-2" asp-controller="Movimentacoes" asp-route-id="@movs.Id" asp-action="Editar">Editar</a>
+                            <a class="btn btn-danger mx-2" asp-controller="Movimentacoes" asp-route-id="@movs.Id" asp-action="Excluir">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-end">
+                <a class="btn btn-success mx-2" asp-controller="Movimentacoes" asp-action="Adicionar">Adicionar</a>
+            </div>
+        </div>
+    </div>
+
+</div>

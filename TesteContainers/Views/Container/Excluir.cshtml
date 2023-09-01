@@ -1,0 +1,61 @@
+﻿@model ContainerModel
+
+@{
+    ViewData["Title"] = "Excluir Container";
+}
+
+<div class="container p-5 roundded-5">
+
+    <div class="mb-5 text-center">
+        <h1>Excluir cadastro de Containers</h1>
+    </div>
+
+    <form class="row g-3" method="post" asp-controller="Container" asp-action="Excluir">
+        <input type="hidden" asp-for="ID" />
+
+        <h2>Deseja mesmo excluir o cadastro?</h2>
+
+        <div class="col-md-12">
+            <label for="inputCliente" class="form-label">Cliente</label>
+            <input type="text" class="form-control" placeholder="Cliente: " asp-for="Cliente" disabled>
+            <span asp-validation-for="Cliente"></span>
+        </div>
+        <div class="col-md-4">
+            <label for="inputContainer" class="form-label">Nº Container</label>
+            <input type="text" class="form-control" placeholder="Numero do Container:" asp-for="NumeroContainer" disabled>
+            <span asp-validation-for="NumeroContainer"></span>
+        </div>
+        <div class="col-md-2">
+            <label for="inputTipo" class="form-label">Tipo</label>
+            <select id="inputTipo" class="form-select" asp-for="Tipo" disabled>
+                <option selected>Selecione...</option>
+                <option>20</option>
+                <option>40</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="inputStatus" class="form-label">Status</label>
+            <select id="inputStatus" class="form-select" asp-for="Status" disabled>
+                <option selected>Selecione...</option>
+                <option>Cheio</option>
+                <option>Vazio</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="inputCategoria" class="form-label">Categoria</label>
+            <select id="inputCategoria" class="form-select" asp-for="Categoria" disabled>
+                <option selected>Selecione...</option>
+                <option>Importação</option>
+                <option>Exportação</option>
+            </select>
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <a class="btn btn-success w-50" asp-controller="Container" asp-action="Index">Voltar</a>
+            <button type="submit" class="btn btn-danger w-50">Excluir</button>
+        </div>
+    </form>
+
+
+
+</div>

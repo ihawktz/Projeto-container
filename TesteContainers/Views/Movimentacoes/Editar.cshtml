@@ -1,0 +1,50 @@
+﻿@model MovimentacoesModel
+
+@{
+    ViewData["Title"] = "Editar Movimentaçoes";
+}
+
+<div class="container p-5 roundded-5">
+
+    <div class="mb-5 text-center">
+        <h1>Editar Movimentações</h1>
+    </div>
+
+    <form class="row g-3" method="post" asp-controller="Movimentacoes" asp-action="Editar">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="col-md-12">
+            <label for="inputState" class="form-label">Tipo de Movimentação</label>
+            <select id="inputState" class="form-select" asp-for="TipoMovs">
+                <option selected>Selecione...</option>
+                <option>Reposicionamento</option>
+                <option>Embarque</option>
+                <option>Descarga</option>
+                <option>Pesagem</option>
+                <option>Scanner</option>
+                <option>Gate in</option>
+                <option>Gate Out</option>
+            </select>
+            <span asp-validation-for="TipoMovs"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label for="dataSelecionada" class="form-label">Data Inicio:</label>
+            <input type="datetime-local" class="form-control" id="dataInicio" asp-for="dtInicio">
+            <span asp-validation-for="dtInicio"></span>
+        </div>
+        <div class="col-md-6">
+            <label for="dataSelecionada" class="form-label">Data Fim:</label>
+            <input type="datetime-local" class="form-control" id="dataFim" asp-for="dtFim">
+            <span asp-validation-for="dtFim"></span>
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <a class="btn btn-danger w-50" asp-controller="Movimentacoes" asp-action="Index">Voltar</a>
+            <button type="submit" class="btn btn-success w-50">Editar</button>
+        </div>
+    </form>
+
+
+
+</div>
